@@ -120,43 +120,43 @@ def analyse():
     # ESTO HABRÍA QUE CONTINUARLO
 
 
-def graph(title, author, temps, min_temps, max_temps, precs, tml, tMl, pl, mym=True):
+def graph():
     months = range(1, 13)
     fig, ax1 = plt.subplots()
     ax2 = ax1.twinx()
     ax1.set_xticks(months)
-    ax1.set_ylim(0, pl)
-    ax2.set_ylim(tml, tMl)
+    ax1.set_ylim(0, VALUES["pl"])
+    ax2.set_ylim(VALUES["tml"], VALUES["tMl"])
     ax1.yaxis.set_label_position("right")
     ax1.yaxis.tick_right()
     ax2.yaxis.set_label_position("left")
     ax2.yaxis.tick_left()
     ax1.spines["top"].set_visible(False)
     ax2.spines["top"].set_visible(False)
-    ax2.plot(months, temps, label="Media", color="g")
-    plt.scatter(months, temps, color="g")
+    ax2.plot(months, VALUES["temps"], label="Media", color="g")
+    plt.scatter(months, VALUES["temps"], color="g")
     if ENTRIES["tbv"].get():
-        ax2.plot(months, min_temps, label="Mínima", color="b")
-        plt.scatter(months, min_temps, color="b")
-        ax2.plot(months, max_temps, label="Máxima", color="r")
-        plt.scatter(months, max_temps, color="r")
-    ax1.bar(months, precs, label="Prec", color="pink", width=0.9)
+        ax2.plot(months, VALUES["min_temps"], label="Mínima", color="b")
+        plt.scatter(months, VALUES["min_temps"], color="b")
+        ax2.plot(months, VALUES["max_temps"], label="Máxima", color="r")
+        plt.scatter(months, VALUES["max_temps"], color="r")
+    ax1.bar(months, VALUES["precs"], label="Prec", color="pink", width=0.9)
     ax1.set_ylabel("Precipitación (mm)")
     ax2.set_ylabel("Temperatura (°C)")
     ax2.legend(loc = "upper left")
-    plt.suptitle(title)
-    plt.title("por " + author)
+    plt.suptitle(VALUES["title"])
+    plt.title("por " + VALUES["author"])
     plt.show()
 
 
 def make_chart():
     chart_window = tk.Tk()
     chart_window.title("Cuadro de " + VALUES["title"])
-    chart_window.geometry("960x200")
+    chart_window.geometry("1140x200")
 
     chart = ttk.Treeview(chart_window)
     chart["columns"] = MESES
-    chart.column("#0", width=150, minwidth=25)
+    chart.column("#0", width=170, minwidth=25)
     for m in MESES:
         chart.column(m, anchor=W, width=80)
     chart.heading("#0", text=" ", anchor=W)
@@ -194,7 +194,7 @@ def run():
     analyse()
     if ENTRIES["cbv"].get():
        aux = make_chart()
-    graph(dict["title"], dict["author"], dict["temps"], dict["min_temps"], dict["max_temps"], dict["precs"], dict["tml"], dict["tMl"], dict["pl"])
+    graph()
     if ENTRIES["cbv"].get():
         aux.mainloop()
 
