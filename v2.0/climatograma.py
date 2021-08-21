@@ -135,7 +135,7 @@ def graph(title, author, temps, min_temps, max_temps, precs, tml, tMl, pl, mym=T
     ax2.spines["top"].set_visible(False)
     ax2.plot(months, temps, label="Media", color="g")
     plt.scatter(months, temps, color="g")
-    if mym:
+    if ENTRIES["tbv"].get():
         ax2.plot(months, min_temps, label="Mínima", color="b")
         plt.scatter(months, min_temps, color="b")
         ax2.plot(months, max_temps, label="Máxima", color="r")
@@ -191,7 +191,7 @@ def run():
         VALUES[k] = v
 
     analyse()
-    graph()
+    graph(dict["title"], dict["author"], dict["temps"], dict["min_temps"], dict["max_temps"], dict["precs"], dict["tml"], dict["tMl"], dict["pl"])
     if ENTRIES["cbv"].get():
         make_chart()
 
