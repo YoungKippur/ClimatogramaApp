@@ -174,7 +174,8 @@ def make_chart():
             text="Amp térmica mensual (°C)", values=amp_term)
     chart.insert(parent="", index="end", iid="4", text="Precipitaciones (mm)", values=VALUES["precs"])
     chart.pack(pady=20)
-    chart.mainloop()
+
+    return chart
 
 
 def run():
@@ -191,9 +192,11 @@ def run():
         VALUES[k] = v
 
     analyse()
+    if ENTRIES["cbv"].get():
+       aux = make_chart()
     graph(dict["title"], dict["author"], dict["temps"], dict["min_temps"], dict["max_temps"], dict["precs"], dict["tml"], dict["tMl"], dict["pl"])
     if ENTRIES["cbv"].get():
-        make_chart()
+        aux.mainloop()
 
 
 make_window()
