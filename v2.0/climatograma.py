@@ -95,13 +95,21 @@ def analyse():
     prec_anual = sum(VALUES["precs"])
     amp_term_anual = max(VALUES["temps"]) - min(VALUES["temps"])
 
+    # No se si es la mejor manera
+    temp_max = max(VALUES["temps"])
+    temp_max_mes = VALUES["temps"].index(temp_max) + 1
+    isTemplado = False
+
     temp_class = ""
     if temp_prom <= 9:
         temp_class = "FRÍO"
+        isTemplado = False
     elif temp_prom <= 20:
         temp_class = "TEMPLADO"
+        isTemplado = True
     else:
         temp_class = "CÁLIDO"
+        isTemplado = False
 
     prec_class = ""
     if prec_anual <= 200:
@@ -113,9 +121,18 @@ def analyse():
     else:
         prec_class = "HÚMEDO"
 
-    ENTRIES["ant"].set("El clima es " + str(temp_class) + " - " + str(prec_class) + "\n" +
-        "así podés poner varias líneas sin tener que usar muchas labels\n\n" +
-        "iupiiiii - amp term anual es " + str(amp_term_anual))
+    hem_class = " "
+    if isTemplado:
+        if temp_max_mes >= 6 and temp_max_mes <= 9:
+            hem_class = "NORTE"
+        elif temp_max_mes == 12 or temp_max_mes <= 3:
+            hem_class = "SUR"
+    else:
+        hem_class = " " # Algun mensaje de error?
+
+    ENTRIES["ant"].set("El clima es " + str(temp_class) + " - " + str(prec_class) + 
+    "\n" + "amp term anual es  " + str(amp_term_anual) + 
+    "\n" + "Hemisferio: " + str(hem_class))
 
     # ESTO HABRÍA QUE CONTINUARLO
 
