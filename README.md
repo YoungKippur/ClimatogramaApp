@@ -10,3 +10,4 @@ Download last version [here](v2.0).
 Young Kippur (Marcos Strauss) and BrunZo
 
 ## License
+(Por completar)
