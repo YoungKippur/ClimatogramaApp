@@ -6,3 +6,5 @@ Python-based climatogram graph application project using the matplotlib and tkin
 ## Contributors
 
 Young Kippur (Marcos Strauss) and BrunZo (Bruno Ziger)
+
+## License
