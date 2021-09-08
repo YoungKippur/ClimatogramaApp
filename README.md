@@ -7,6 +7,6 @@ Download last version [here](v2.0).
 
 ## Contributors
 
-Young Kippur (Marcos Strauss) and BrunZo (Bruno Ziger)
+Young Kippur (Marcos Strauss) and BrunZo
 
 ## License
