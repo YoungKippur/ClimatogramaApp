@@ -4,3 +4,5 @@ Python-based climatogram graph application project using the matplotlib and tkin
 (.exe version in .rar file)
 
 ## Contributors
+
+Young Kippur (Marcos Strauss) and brunZo
