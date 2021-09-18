@@ -11,7 +11,7 @@ Download last version [here](v2.0).
 
 ## Contributors
 
-Young Kippur (Marcos Strauss) and BrunZo
+[Young Kippur](https://github.com/YoungKippur) (Marcos Strauss) and [BrunZo](https://github.com/BrunZo)
 
 ## License
 (Por completar)
