@@ -14,4 +14,4 @@ Download last version [here](v2.0).
 [Young Kippur](https://github.com/YoungKippur) (Marcos Strauss) and [BrunZo](https://github.com/BrunZo)
 
 ## License
-(Por completar)
+MIT License.
